@@ -1,0 +1,84 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int playerX = 5;
+        int playerY = 5;
+
+        int starX = 10;
+        int starY = 8;
+
+        int score = 0;
+
+        Random random = new Random();
+
+        while (true)
+        {
+            Console.Clear();
+
+            Console.WriteLine("=== COLLECT THE STAR ===");
+            Console.WriteLine("W = Up | S = Down");
+            Console.WriteLine("A = Left | D = Right");
+            Console.WriteLine("Q = Quit");
+            Console.WriteLine("Score: " + score);
+            Console.WriteLine();
+
+            for (int y = 0; y < 15; y++)
+            {
+                for (int x = 0; x < 30; x++)
+                {
+                    if (x == playerX && y == playerY)
+                    {
+                        Console.Write("@");
+                    }
+                    else if (x == starX && y == starY)
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        Console.Write(".");
+                    }
+                }
+
+                Console.WriteLine();
+            }
+
+            char key = Console.ReadKey().KeyChar;
+
+            if (key == 'w' && playerY > 0)
+            {
+                playerY--;
+            }
+            else if (key == 's' && playerY < 14)
+            {
+                playerY++;
+            }
+            else if (key == 'a' && playerX > 0)
+            {
+                playerX--;
+            }
+            else if (key == 'd' && playerX < 29)
+            {
+                playerX++;
+            }
+            else if (key == 'q')
+            {
+                break;
+            }
+
+            if (playerX == starX && playerY == starY)
+            {
+                score++;
+
+                starX = random.Next(0, 30);
+                starY = random.Next(0, 15);
+            }
+        }
+
+        Console.WriteLine("Game Over!");
+        Console.WriteLine("Final Score: " + score);
+    }
+}
