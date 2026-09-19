@@ -1,0 +1,20 @@
+using System;
+
+class Program
+{
+	static void Main()
+	{
+		int userAge = 18;
+
+		string userName = "Jericho";
+
+		bool isAccountActive = true;
+
+		double accountBalance = 1650.75;
+
+		Console.WriteLine("User Name: " + userName);
+		Console.WriteLine("Username: " + userAge);
+		Console.WriteLine("Active Status: " + isAccountActive);
+		Console.WriteLine("Balnce: $" + accountBalance);
+	}
+}
